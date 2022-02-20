@@ -1,26 +1,11 @@
-from __future__ import print_function
-
-import gym
-from gym import spaces
-import numpy as np
-
-
-
-
-
-
-
-
-
-
-
 """
 2-input XOR example -- this is most likely the simplest possible example.
 """
 
-
+from __future__ import print_function
 import os
 import neat
+import visualize
 
 # 2-input XOR inputs and expected outputs.
 xor_inputs = [(0.0, 0.0), (0.0, 1.0), (1.0, 0.0), (1.0, 1.0)]
@@ -73,80 +58,10 @@ def run(config_file):
     p.run(eval_genomes, 10)
 
 
-# if __name__ == '__main__':
-#     # Determine path to configuration file. This path manipulation is
-#     # here so that the script will run successfully regardless of the
-#     # current working directory.
-#     local_dir = os.path.dirname(__file__)
-#     config_path = os.path.join(local_dir, 'config-feedforward-car')
-#     run(config_path)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def generateAction(observation):
-    inputLayers = []
-
-    hiddenLayers = []
-
-    # Do calculations
-
-    outputLayers = [-1, 1, 0]
-    return outputLayers
-    #return np.random.uniform(-1,1,4)
-
-
-envs = []
-observations = []
-actions = []
-rewards = []
-for i in range(10):
-    envs.append(gym.make('CarRacing-v1'))
-    observations.append(envs[i].reset())
-
-for episode in range(1):
-    # reset the environment after each episode
-    for i in range(10):
-        observations[i] = envs[i].reset()
-
-    done = False
-
-    # each episode has timesteps
-    timestep = 0
-    while not done:
-        envs[0].render()
-        
-        actions = []
-        rewards = []
-        for i in range(10):
-            # generate action for each agent
-            actions.append(generateAction(observations[i]))
-            # take action and get new observation and reward
-
-            rewards.append(0)
-            observations[i], rewards[i], done, info = envs[i].step(actions[i])
-
-        # Go to the next step
-        timestep += 1
-
-        if done:
-            print("Ran!")
-
-            print(f"Episode finished after {timestep+1} timesteps")
-            break
-
-# close the environments
-for i in range(10):
-    envs[i].close()
+if __name__ == '__main__':
+    # Determine path to configuration file. This path manipulation is
+    # here so that the script will run successfully regardless of the
+    # current working directory.
+    local_dir = os.path.dirname(__file__)
+    config_path = os.path.join(local_dir, 'config-feedforward-example')
+    run(config_path)
