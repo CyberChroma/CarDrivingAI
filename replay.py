@@ -1,7 +1,7 @@
 import neat
 import pickle
 
-from generation import generation
+from multiProcessGeneration import generation
 
 def replay_genome(config_path="config-feedforward-car", genome_path="winner.pkl"):
     # Load requried NEAT config

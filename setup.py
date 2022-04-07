@@ -2,12 +2,12 @@ import os
 import neat
 import pickle
 
-from generation import generation
+from multiProcessGeneration import generation
 from logger import *
 
 def setup(isRestore = False):
     p = None
-    generations = 10
+    generations = 7
     
     local_dir = os.path.dirname(__file__)
     config_path = os.path.join(local_dir, "config-feedforward-car")
@@ -25,7 +25,7 @@ def setup(isRestore = False):
         p.add_reporter(neat.Checkpointer(5))
         winner = p.run(generation, generations - p.generation)
         stats.save()
-        
+    
     else:
         p = neat.Population(config)
         p.add_reporter(neat.StdOutReporter(True))
@@ -40,4 +40,4 @@ def setup(isRestore = False):
     f.close()
 
 if __name__ == '__main__':
-    setup(isRestore=True)
+    setup(isRestore=False)

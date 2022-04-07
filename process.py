@@ -33,9 +33,6 @@ def genomeProcess(processID, net, car, fitness, draw):
         # Go to the next step
         timestep += 1
 
-        if done:
-            break
-
     # close the environments
     env.close()
     fitness.value = car.fitness
