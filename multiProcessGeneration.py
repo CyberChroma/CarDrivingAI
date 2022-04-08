@@ -52,4 +52,3 @@ def generation(genomes = [], config = []):
     averageFitness /= len(fitnesses)
     logBestFitness(bestFitness)
     logAverageFitness(averageFitness)
-    

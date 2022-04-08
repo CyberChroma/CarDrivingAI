@@ -7,7 +7,7 @@ from logger import *
 
 def setup(isRestore = False):
     p = None
-    generations = 7
+    generations = 1365
     
     local_dir = os.path.dirname(__file__)
     config_path = os.path.join(local_dir, "config-feedforward-car")
@@ -18,7 +18,7 @@ def setup(isRestore = False):
     winner = None
     
     if isRestore:
-        p = neat.Checkpointer.restore_checkpoint('neat-checkpoint-4')
+        p = neat.Checkpointer.restore_checkpoint('neat-checkpoint-1364')
         p.add_reporter(neat.StdOutReporter(True))
         stats = neat.StatisticsReporter()
         p.add_reporter(stats)
