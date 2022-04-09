@@ -1,0 +1,100 @@
+
+[NEAT]
+fitness_criterion     = max
+fitness_threshold     = 10000
+# population size can be changed here
+pop_size              = 20
+reset_on_extinction   = False
+
+[DefaultGenome]
+# node activation options
+activation_default      = sigmoid
+activation_mutate_rate  = 0.0
+activation_options      = sigmoid
+
+# node aggregation options
+aggregation_default     = sum
+aggregation_mutate_rate = 0.0
+aggregation_options     = sum
+
+# node bias options
+bias_init_mean          = 0.0
+bias_init_stdev         = 1.0
+bias_max_value          = 30.0
+bias_min_value          = -30.0
+bias_mutate_power       = 0.5
+bias_mutate_rate        = 0.7
+bias_replace_rate       = 0.1
+
+# genome compatibility options
+compatibility_disjoint_coefficient = 1.0
+compatibility_weight_coefficient   = 0.5
+
+# connection add/remove rates
+conn_add_prob           = 0.5
+conn_delete_prob        = 0.5
+
+# connection enable options
+enabled_default         = True
+enabled_mutate_rate     = 0.01
+
+feed_forward            = True
+initial_connection      = full_direct
+
+# node add/remove rates
+node_add_prob           = 0.5
+node_delete_prob        = 0.5
+
+# network parameters
+num_hidden              = 2
+# 5 for canny, 504 for image compression  
+num_inputs              = 5
+num_outputs             = 3
+
+# node response options
+response_init_mean      = 1.0
+response_init_stdev     = 0.0
+response_max_value      = 30.0
+response_min_value      = -30.0
+response_mutate_power   = 0.0
+response_mutate_rate    = 0.0
+response_replace_rate   = 0.0
+
+# connection weight options
+weight_init_mean        = 0.0
+weight_init_stdev       = 1.0
+weight_max_value        = 30
+weight_min_value        = -30
+weight_mutate_power     = 0.5
+weight_mutate_rate      = 0.8
+weight_replace_rate     = 0.1
+
+[DefaultSpeciesSet]
+compatibility_threshold = 3.0
+
+[DefaultStagnation]
+species_fitness_func = max
+
+; Species that have not shown improvement
+; in more than this number of generations will be
+; considered stagnant and removed. This defaults to 15.
+max_stagnation       = 5
+
+; The number of species that will be protected from stagnation; 
+; mainly intended to prevent total extinctions caused by all
+; species becoming stagnant before new species arise.
+; For example, a species_elitism setting of 3 will prevent
+; the 3 species with the highest species fitness from being
+; removed for stagnation regardless of the amount of time
+; they have not shown improvement. This defaults to 0
+species_elitism      = 2
+
+[DefaultReproduction]
+; The number of most-fit individuals in each species
+; that will be preserved as-is from one generation to
+; the next. This defaults to 0.
+elitism            = 2
+
+; The fraction for each species allowed to reproduce
+; each generation. This defaults to 0.2
+survival_threshold = 0.5
